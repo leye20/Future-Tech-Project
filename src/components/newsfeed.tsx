@@ -1,67 +1,67 @@
 import React from 'react';
 import { RootState } from '../store';
-import { removeNewsFromNewsfeed, addNewsToNewsfeed } from '../store/newsfeed/action';
-import { News } from '../store/newsfeed/types';
-import { Grid, Image } from 'semantic-ui-react';
+import { removePostFromNewsfeed, addPostToNewsfeed } from '../store/newsfeed/action';
+import { Post } from '../store/newsfeed/types';
+import { Grid, Message } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 export interface INewsfeedProps {
-    removeNewsFromNewsfeed: typeof removeNewsFromNewsfeed,
-    addNewsToNewsfeed: typeof addNewsToNewsfeed,
-    news: News[]
-  }
-  
-  export class Newsfeed extends React.Component<INewsfeedProps>
-  {
+    removePostFromNewsfeed: typeof removePostFromNewsfeed,
+    addPostToNewsfeed: typeof addPostToNewsfeed,
+    posts: Post[]
+}
+
+// const post: string = 'this is the way to go';
+
+export class Newsfeed extends React.Component<INewsfeedProps, Post>
+{
     generateID = (): number => {
-      let randomNumber: number = Math.floor( Math.random() * 1000 );
-      randomNumber += this.props.news.length;
-      return randomNumber;
-    }
-    newNewsfeed = ( event: any ) => {
-      event.preventDefault();
-      const formField: HTMLInputElement | null = document.querySelector( '[name="Newsfeed-name"]' );
-      let formFieldValue: string = '';
-      if ( formField !== null ) formFieldValue = formField.value;
-          this.props.addNewsToNewsfeed( {
+        let randomNumber: number = Math.floor( Math.random() * 1000 );
+        randomNumber += this.props.posts.length;
+        return randomNumber;
+      }
+      newProduct = ( post: string ) => {
+        // Handle retrieval of form field value.
+        const formField: HTMLInputElement | null = document.querySelector( '[name="product-name"]' );
+        let formFieldValue: string = '';
+        if ( formField !== null ) formFieldValue = formField.value;
+        // Add new item to inventory.
+        this.props.addPostToNewsfeed( {
           id: this.generateID(),
           article: formFieldValue
-      } );
-    }
-    deleteNewsfeed = ( id: number ) => {
-      this.props.removeNewsFromNewsfeed( id );
-    }
-    render ()
-    {
-      return (
-          <Grid>
-            <Grid.Row>
-                <Grid.Column width={4}>
-                    <Image src='/images/wireframe/image.png' />
-                </Grid.Column>
-                <Grid.Column width={9}>
-                    <Image src='/images/wireframe/paragraph.png' />
-                </Grid.Column>
-                <Grid.Column width={3}>
-                    <Image src='/images/wireframe/media-paragraph.png' />
-                </Grid.Column>
-            </Grid.Row>
-            <h3>List of Newsfeeds</h3>
-            <Grid.Row>
-              
-            </Grid.Row>
-          </Grid>
-        );
+        } );
       }
-    }
-    
-  const mapStateToProps = ( state: RootState ) => {
-      return {
-        news: state.newsfeed.news
+      deleteProduct = ( id: number ) => {
+        // Remove this product by the ID!
+        this.props.removePostFromNewsfeed( id );
       }
+      render ()
+      {
+        return (
+            <Grid>
+              <h3>Future-Tech Newsfeed</h3>
+              <Message color='teal'>Future-Tech Newsfeed</Message>
+              <Grid.Row>
+                <ul>
+                  {this.props.posts.map( element => (
+                  <li>
+                    {element.article}
+                    </li>
+                    ) )}
+                </ul>
+              </Grid.Row>
+            </Grid>
+          );
+        }
+      }
+
+const mapStateToProps = (state: RootState) => {
+    return {
+        posts: state.newsfeed.posts
     }
-    
-  export default connect(
-      mapStateToProps,
-      { addNewsToNewsfeed, removeNewsFromNewsfeed }
-    )( Newsfeed );
+}
+
+export default connect(
+    mapStateToProps,
+    { addPostToNewsfeed, removePostFromNewsfeed }
+)(Newsfeed);

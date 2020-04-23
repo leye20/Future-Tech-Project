@@ -1,7 +1,7 @@
-import { NewsfeedState, ADD_NEWS_TO_NEWSFEED, REMOVE_NEWS_FROM_NEWSFEED, NewsfeedActionTypes } from './types';
+import { NewsfeedState, ADD_POST_TO_NEWSFEED, REMOVE_POST_FROM_NEWSFEED, NewsfeedActionTypes } from './types';
 
 const initialState: NewsfeedState = {
-    news: [
+    posts: [
         {
             id: 1,
             article: 'The world as we know it is changed due to the COVID 19. The economic woes this would leave might only be know, in weeks, months, maybe years to come.'
@@ -67,15 +67,15 @@ const initialState: NewsfeedState = {
 
 export function newsfeedReducer ( state = initialState, action: NewsfeedActionTypes ) {
     switch ( action.type ) {
-        case ADD_NEWS_TO_NEWSFEED:
+        case ADD_POST_TO_NEWSFEED:
             return {
                 ...state,
-                news: [ ...state.news, action.payload ]
+                posts: [ ...state.posts, action.payload ]
             }
-        case REMOVE_NEWS_FROM_NEWSFEED:
+        case REMOVE_POST_FROM_NEWSFEED:
             return {
                 ...state,
-                news: state.news.filter( news => news.id !== action.payload ) // check here later as you might be mixting things up with news that has been passed into the filter method!
+                posts: state.posts.filter( post => post.id !== action.payload ) // check here later as you might be mixting things up with news that has been passed into the filter method!
             }
         default:
             return state;

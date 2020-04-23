@@ -1,15 +1,15 @@
-import { NewsfeedActionTypes, ADD_NEWS_TO_NEWSFEED, REMOVE_NEWS_FROM_NEWSFEED, News } from './types';
+import { NewsfeedActionTypes, ADD_POST_TO_NEWSFEED, REMOVE_POST_FROM_NEWSFEED, Post } from './types';
 
-export function addNewsToNewsfeed ( news: News ): NewsfeedActionTypes {
+export function addPostToNewsfeed ( post: Post ): NewsfeedActionTypes {
     return {
-        type: ADD_NEWS_TO_NEWSFEED,
-        payload: news
+        type: ADD_POST_TO_NEWSFEED,
+        payload: post
     }
 }
 
-export function removeNewsFromNewsfeed ( id: number ): NewsfeedActionTypes {
+export function removePostFromNewsfeed ( id: number ): NewsfeedActionTypes {
     return {
-        type: REMOVE_NEWS_FROM_NEWSFEED,
+        type: REMOVE_POST_FROM_NEWSFEED,
         payload: id
     }
 }
