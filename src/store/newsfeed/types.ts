@@ -1,6 +1,7 @@
 export interface Post {
     id: number,
-    article: string
+    article: string,
+    thumbnailUrl: string
 }
 
 export interface NewsfeedState {
