@@ -55,17 +55,17 @@ SignedUp = ( event: any ) => {
         name: intFieldValue
     });
 
-    // show alert on successfull signup
+    // show alert on successfull signup.
     alert("Welcome!!! You have successfully signed up."); 
 
-    // Clear input fields and reset them to blank
+    // Clear input fields and reset them to blank.
     event.target.reset();
   }
    
 
 render() {
     let {userslist}=this.props;
-    console.log (userslist); // checking the console to ensure that new imputs are added 
+    console.log (userslist); // checking the console to ensure that new imputs are added.
 
     return (
 <Grid centered>
