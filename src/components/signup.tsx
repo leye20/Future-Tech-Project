@@ -62,7 +62,6 @@ SignedUp = ( event: any ) => {
     event.target.reset();
   }
    
-
 render() {
     let {userslist}=this.props;
     console.log (userslist); // checking the console to ensure that new imputs are added.
