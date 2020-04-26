@@ -1,18 +1,24 @@
-import {SignupPageState,  ADD_NEW_SIGNUP_TO_USERSLIST, CHECK_USERSLIST_FOR_EXISTING_USERNAME, SignupPageActionTypes } from './types';
+import {SignupPageState,  ADD_NEW_SIGNUP_TO_USERSLIST, SignupPageActionTypes } from './types';
 
 const initialState: SignupPageState = {
     userslist: [
         {
             id: 1,
-            name:'usename'
+            name:'usename',
+            password: "1111",
+            interests: "2222"
         },
         {
             id: 2,
-            name:'password'
+            name:'password',
+            password: "1111",
+            interests: "2222"
         },
         {
             id: 3,
-            name:'interest'
+            name:'interest',
+            password: "1111",
+            interests: "2222"
         },
            
     ]
@@ -25,11 +31,6 @@ export function signupReducer ( state = initialState, action: SignupPageActionTy
                 ...state,
 
                 userslist: [...state.userslist, action.payload]
-            }
-        case CHECK_USERSLIST_FOR_EXISTING_USERNAME:
-            return {
-                ...state,
-                userslist: state.userslist.filter(userslist => action.payload )
             }
             default:
                 return state;
