@@ -1,25 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Grid } from 'semantic-ui-react';
+import Profile from './components/profile';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid centered>
+      <Grid.Row>
+        <h1>Let's Try React &amp; Redux... Again!</h1>
+      </Grid.Row>
+      <Grid.Row>
+        {/* Products. */}
+        <Profile />
+      </Grid.Row>
+      <Grid.Row>
+        {/* Cart. */}
+      </Grid.Row>
+    </Grid>
   );
 }
 
