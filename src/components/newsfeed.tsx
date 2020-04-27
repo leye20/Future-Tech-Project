@@ -36,29 +36,6 @@ export class Newsfeed extends React.Component<INewsfeedProps, IState>
     randomNumber += this.props.posts.length;
     return randomNumber;
   }
-  // newProduct = (post: string) => {
-  //   // Handle retrieval of form field value.
-  //   const formField: HTMLInputElement | null = document.querySelector('[article="product-name"]');
-  //   let formFieldValue: string = '';
-  //   if (formField !== null) formFieldValue = formField.value;
-  //   // Add new item to inventory.
-  //   this.props.addPostToNewsfeed({
-  //     id: this.generateID(),
-  //     thumbnailUrl: formFieldValue,
-  //     article: formFieldValue
-  //   });
-  // }
-  // deleteProduct = (id: number) => {
-  //   // Remove this product by the ID!
-  //   this.props.removePostFromNewsfeed(id);
-  // }
-  // componentWillUpdate(){
-  //   if (this.state.index < this.props.posts.length) {
-  //     this.setState({index: this.state.index + 1})
-  //     console.log( 'working' );
-  //     setTimeout(() => {}, 10000);
-  //   }
-  // }
   
   // this function enables the periodic posts of articles
   componentDidMount() {
@@ -68,11 +45,11 @@ export class Newsfeed extends React.Component<INewsfeedProps, IState>
     // setTimeout(() => {}, 10000);
   }
 
-  componentWillUnmount() {
-    // to clear my interval in here (but this is needs debugging)
-    console.log('component unran')
-    clearInterval(this.state.index);
-  }
+  // componentWillUnmount() {
+  //   // to clear my interval in here (but this is needs debugging)
+  //   console.log('component unran')
+  //   clearInterval(this.state.index);
+  // }
 
   render() {
     let {index} = this.state;
