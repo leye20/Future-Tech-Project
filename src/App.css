@@ -7,6 +7,27 @@
   pointer-events: none;
 }
 
+/************************************
+
+Newsfeed Page Styling
+
+************************************/
+
+/* .ui.items.feedblk {
+  border: 1px solid grey;
+} */
+
+.ui.item.post{
+  border: 1px solid grey;
+  margin-left: 300px;
+  margin-right: 350px;
+  margin: 50px;
+  border-radius: 1em;
+  padding: 1em;
+  /* display: inline-block; */
+  /* text-align: justify; */
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
