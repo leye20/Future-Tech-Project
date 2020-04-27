@@ -2,7 +2,7 @@ import React from 'react';
 import { RootState } from '../store';
 import { removePostFromNewsfeed, addPostToNewsfeed } from '../store/newsfeed/action';
 import { Post } from '../store/newsfeed/types';
-import { Grid, Image } from 'semantic-ui-react';
+import { Item } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import './newsfeed.css';
 // import myImage from '../painting.jpg';
@@ -19,16 +19,13 @@ export interface INewsfeedState {
   index: number
 }
 
-// const post: string = 'this is the way to go';
-
 export class Newsfeed extends React.Component<INewsfeedProps, INewsfeedState>
 {
 
-  constructor(prop: INewsfeedProps) {
-    super(prop);
+  constructor(props: INewsfeedProps) {
+    super(props);
     this.state = ({
-      display: setTimeout(() => {
-        
+      display: setTimeout(() => {       
       }, 0),
       displayPicker: 1,
       index: 1
@@ -71,32 +68,34 @@ export class Newsfeed extends React.Component<INewsfeedProps, INewsfeedState>
     // setTimeout(() => {}, 10000);
   }
 
-  // componentWillUnmount() {
-  //   // to clear my interval in here
-  //   console.log('component unran')
-  //   clearInterval(this.state.display);
-  // }
+  componentWillUnmount() {
+    // to clear my interval in here
+    console.log('component unran')
+    // this.setState({index: clearInterval(this.state.index)});
+  }
 
   render() {
     let {index} = this.state;
     setTimeout(() => {}, 1000);
     return (
-      <Grid centered>
-        {this.props.posts.slice(0, index).map(element =>
+      <Item.Group>
+      {this.props.posts.slice(0, index).map(element => 
+      <Item>
+        {/* {this.props.posts.slice(0, index).map(element =>  */}
+          <Item.Image size='small' src={element.thumbnailUrl} />
 
-          <Grid.Row>
-            <Grid.Column width={2}>
-              <Image src={element.thumbnailUrl} />
-            </Grid.Column>
-            <Grid.Column width={7}>
+          <Item.Content>
+            <Item.Header as='a'>Newsfeed</Item.Header>
+            <Item.Description>
+              <p>
               {element.article}
-            </Grid.Column>
-
-          </Grid.Row>
-         
+              </p>
+            </Item.Description>
+          </Item.Content>
+          </Item>
         )}
-      </Grid>
-
+      
+      </Item.Group>
     );
   }
 }
