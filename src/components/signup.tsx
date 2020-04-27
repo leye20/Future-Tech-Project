@@ -1,7 +1,7 @@
 import React from 'react';
 import { RootState } from '../store';
-import { addNewSignupToUsersList } from '../store/signup/action';
-import { UsersList } from '../store/signup/types';
+import { addNewSignupToUsersList } from '../store/signup/Taiwo_action';
+import { UsersList } from '../store/signup/Taiwo_types';
 import { Button, Form, Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 

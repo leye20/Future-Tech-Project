@@ -1,4 +1,4 @@
-import {SignupPageState,  ADD_NEW_SIGNUP_TO_USERSLIST, SignupPageActionTypes } from './types';
+import {SignupPageState,  ADD_NEW_SIGNUP_TO_USERSLIST, SignupPageActionTypes } from './Taiwo_types';
 
 const initialState: SignupPageState = {
     userslist: [
