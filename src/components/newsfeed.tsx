@@ -2,10 +2,9 @@ import React from 'react';
 import { RootState } from '../store';
 import { removePostFromNewsfeed, addPostToNewsfeed } from '../store/newsfeed/newsfeed_action';
 import { Post } from '../store/newsfeed/newsfeed_types';
-import { Item } from 'semantic-ui-react';
+import { Item, Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import './newsfeed.css';
-// import myImage from '../painting.jpg';
 
 export interface INewsfeedProps {
   removePostFromNewsfeed: typeof removePostFromNewsfeed,
@@ -79,6 +78,7 @@ export class Newsfeed extends React.Component<INewsfeedProps, IState>
     let {index} = this.state;
     setTimeout(() => {}, 1000);
     return (
+      <Grid columns="two">
       <Item.Group className='feedblk'>
       {this.props.posts.slice(0, index).map(element => 
       <Item className='post'>
@@ -97,6 +97,7 @@ export class Newsfeed extends React.Component<INewsfeedProps, IState>
         )}
       
       </Item.Group>
+      </Grid>
     );
   }
 }
