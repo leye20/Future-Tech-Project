@@ -5,15 +5,15 @@ const initialState:ProfileState = {
   items: [
     {
       id: "bob",
-      name: 'Socks'
+      name: 'Birtday: 20041982, Interests: Football, Swimming'
     },
     {
       id: "kounandi",
-      name: 'Pants'
+      name: 'Birtday: 01041981, Interests: Readingg'
     },
     {
       id: "john",
-      name: 'Shoes'
+      name: 'Birtday: 15031980, Interests: Dancing, Hiking'
     }
   ]
 }

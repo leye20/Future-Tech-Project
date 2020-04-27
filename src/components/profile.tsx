@@ -2,7 +2,7 @@ import React from 'react';
 import { RootState } from '../store';
 import { removeItemFromProfile, addItemToProfile } from '../store/profile/action';
 import { Item }  from '../store/profile/types';
-import { Grid, Form, Input, Button } from 'semantic-ui-react';
+import { Grid, Form, Input } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 
 export interface IProfileProps {
@@ -44,13 +44,12 @@ export class Profile extends React.Component<IProfileProps>
             <Input type="submit" value="Submit" />
           </Form>
         </Grid.Row>
-        <h3>Products</h3>
+        <h3>User Information</h3>
         <ul>
           {/* Loop through our REDUX product items... */}
           { this.props.items.map( element => (
               <li>
-                {element.name}
-    
+                {element.name}   
               </li>
           ) ) }
         </ul>
