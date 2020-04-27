@@ -1,4 +1,4 @@
-import { UserList, ADD_USERS_TO_SYSTEM } from "./types";
+import { UserList, ADD_USERS_TO_SYSTEM } from "./sijo_types";
 
 export function AddUserToSystem(thisWasCopied: UserList) {
     return {
