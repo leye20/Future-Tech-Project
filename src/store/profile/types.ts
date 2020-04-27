@@ -20,7 +20,7 @@ interface RemoveItemFromProfile {
 
 interface AddItemToProfile {
   type: typeof ADD_ITEM_TO_PROFILE,
-  payload: string // We need to pass a new Item that should be added to our store.
+  payload: Item // We need to pass a new Item that should be added to our store.
 }
 
 export type ProfileActionTypes = RemoveItemFromProfile | AddItemToProfile;

@@ -25,7 +25,7 @@ export function profileReducer ( state = initialState, action: ProfileActionType
       return {
         ...state,
         // Filter through, and return the array WITHOUT the matching ID.
-        items: state.items.filter( item => item.id !== action.payload )
+        items: state.items.filter( item => item.id === action.payload )
       }
     case ADD_ITEM_TO_PROFILE:
       return {

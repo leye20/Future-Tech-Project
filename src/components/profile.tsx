@@ -25,15 +25,12 @@ export class Profile extends React.Component<IProfileProps>
     let formFieldValue: string = '';
     if ( formField !== null ) formFieldValue = formField.value;
     // Add new item to inventory.
-    this.props.addItemToProfile( {
-      id: 'id'+this.generateID(),
-      name: formFieldValue
-    } );
+    this.props.removeItemFromProfile(formFieldValue);
   }
-  deleteProduct = ( id: string ) => {
+  //deleteProduct =  () => {
     // Remove this product by the ID!
-    this.props.removeItemFromProfile( id );
-  }
+    //this.props.removeItemFromProfile(formFieldValue);
+  //}
   render ()
   {
     return (
@@ -41,10 +38,10 @@ export class Profile extends React.Component<IProfileProps>
         <Grid.Row>
           <Form onSubmit={this.newProduct}>
             <Form.Field>
-              <label htmlFor="product-name">Enter Product Name</label>
+              <label htmlFor="product-name">Enter User ID</label>
               <Input name="product-name" type='text' />
             </Form.Field>
-            <Input type="submit" value="Add" />
+            <Input type="submit" value="Submit" />
           </Form>
         </Grid.Row>
         <h3>Products</h3>
@@ -53,14 +50,7 @@ export class Profile extends React.Component<IProfileProps>
           { this.props.items.map( element => (
               <li>
                 {element.name}
-                <Button
-                  size='mini'
-                  color='red'
-                  onClick={event => {
-                    this.deleteProduct( element.id )
-                }}>
-                  &times;
-                </Button>
+    
               </li>
           ) ) }
         </ul>

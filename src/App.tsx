@@ -6,7 +6,7 @@ function App() {
   return (
     <Grid centered>
       <Grid.Row>
-        <h1>Let's Try React &amp; Redux... Again!</h1>
+        <h1>Profile Page</h1>
       </Grid.Row>
       <Grid.Row>
         {/* Products. */}
