@@ -1,7 +1,7 @@
 import React from 'react';
 import { RootState } from '../store';
-import { removePostFromNewsfeed, addPostToNewsfeed } from '../store/newsfeed/action';
-import { Post } from '../store/newsfeed/types';
+import { removePostFromNewsfeed, addPostToNewsfeed } from '../store/newsfeed/newsfeed_action';
+import { Post } from '../store/newsfeed/newsfeed_types';
 import { Item } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import './newsfeed.css';
@@ -13,19 +13,19 @@ export interface INewsfeedProps {
   posts: Post[]
 }
 
-export interface INewsfeedState {
-  display: NodeJS.Timeout;
+export interface IState {
+  interval: NodeJS.Timeout;
   displayPicker: number;
   index: number
 }
 
-export class Newsfeed extends React.Component<INewsfeedProps, INewsfeedState>
+export class Newsfeed extends React.Component<INewsfeedProps, IState>
 {
 
   constructor(props: INewsfeedProps) {
     super(props);
     this.state = ({
-      display: setTimeout(() => {       
+      interval: setTimeout(() => {       
       }, 0),
       displayPicker: 1,
       index: 1
@@ -60,7 +60,8 @@ export class Newsfeed extends React.Component<INewsfeedProps, INewsfeedState>
   //     setTimeout(() => {}, 10000);
   //   }
   // }
-
+  
+  // this function enables the periodic posts of articles
   componentDidMount() {
     console.log('component ran');
     setInterval(() => {this.setState({index: this.state.index + 1})}, 10000);
@@ -69,23 +70,23 @@ export class Newsfeed extends React.Component<INewsfeedProps, INewsfeedState>
   }
 
   componentWillUnmount() {
-    // to clear my interval in here
+    // to clear my interval in here (but this is needs debugging)
     console.log('component unran')
-    // this.setState({index: clearInterval(this.state.index)});
+    clearInterval(this.state.index);
   }
 
   render() {
     let {index} = this.state;
     setTimeout(() => {}, 1000);
     return (
-      <Item.Group>
+      <Item.Group className='feedblk'>
       {this.props.posts.slice(0, index).map(element => 
-      <Item>
+      <Item className='post'>
         {/* {this.props.posts.slice(0, index).map(element =>  */}
           <Item.Image size='small' src={element.thumbnailUrl} />
 
           <Item.Content>
-            <Item.Header as='a'>Newsfeed</Item.Header>
+            <Item.Header as='a'>...Updated feed</Item.Header>
             <Item.Description>
               <p>
               {element.article}

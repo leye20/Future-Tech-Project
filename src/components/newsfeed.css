@@ -5,3 +5,12 @@
     display: inline-block;
 } */
 
+.item.post {
+  border: 1px solid grey;
+  margin-left: 300px;
+  margin-right: 350px;
+  margin: 50px;
+  border-radius: 1em;
+  /* display: inline-block; */
+  text-align: justify;
+}

@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from 'redux';
-import { newsfeedReducer } from './newsfeed/reducer';
+import { newsfeedReducer } from './newsfeed/newsfeed_reducer';
 
 const rootReducer = combineReducers( {
     newsfeed: newsfeedReducer

@@ -8,7 +8,8 @@ function App() {
     <Grid centered>
       <Grid.Row>
         <Header as='h3' block>
-          Newsfeed Header
+          <p>Future-Tech Newsfeed</p>
+          For your Rssfeed on the go...
         </Header>
       </Grid.Row>
       <Grid.Row>

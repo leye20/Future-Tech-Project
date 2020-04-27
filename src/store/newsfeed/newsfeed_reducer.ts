@@ -1,4 +1,4 @@
-import { NewsfeedState, ADD_POST_TO_NEWSFEED, REMOVE_POST_FROM_NEWSFEED, NewsfeedActionTypes } from './types';
+import { NewsfeedState, ADD_POST_TO_NEWSFEED, REMOVE_POST_FROM_NEWSFEED, NewsfeedActionTypes } from './newsfeed_types';
 
 const initialState: NewsfeedState = {
     posts: [
