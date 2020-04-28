@@ -1,3 +1,35 @@
+![Image description](https://app.slack.com/client/TTBL33AK0/C011V6F4K70)
+
+
+Group Name: Future-Tech 
+
+Group Members:Leye(leye20), Taiwo(taiwoadeniji), Linshia(Linshian), Kounandi(Ouatarak), Jacob(sijosiji) 
+
+GitHub: https://github.com/leye20/Future-Tech-Project.git
+
+Trello: https://trello.com/b/yoOsYNPF/goup8-milestone-2
+
+Requirement file: https://drive.google.com/drive/u/2/folders/19gc32aum7dsAU6KOn6_yPPrYeRhPEGYT
+
+Project Documentation: 
+
+Sign Up Page
+The signup page has an input filed for Username, Password and Interests. On successful sign up, it displays a welcome alert but if an already existing username is entered, it displays an error message saying username already exists. For every new sign up, users information are stored.
+
+Newsfeed
+The page is meant to display a news feed every 10 seconds, the requirement was to do it every 15 seconds, but for the sake of our presentation the timer was adjusted downward to ensure we don't wait forever while the posts displays on the page.
+Steps to achieve the requirements.
+First was to create the actions that would be required of the page. This can be found in the newsfeed_actions file in the newsfeed folder seated in the store folder.
+Then a set of posts was created that would be displayed on the page, housed in a mini database called the reducer and the main purpose of the reducer is to take the current state of the page, combined with an action as declared or stated in our action file and pushes the new state to the user interface.
+In the types file we have documented the expected action for the User interface.
+Once you navigate to the page, that serves as a trigger for the page to start to render posts.
+It renders the first post based on a random ID picked from a set of IDs in the reducer.
+Then a timer was set to delay the interval the posts would display on the.
+
+Profile Page
+Profile page is a user search page. By entering a user id, our user will be able to view the profile of themselves as well as other registered users.
+
+Installation Instructions:
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -42,3 +74,12 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+
+
+
+
+
+
+
