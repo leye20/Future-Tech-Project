@@ -12,68 +12,59 @@ export interface INewsfeedProps {
   posts: Post[]
 }
 
-export interface IState {
+export interface INewsfeedState {
   interval: NodeJS.Timeout;
   displayPicker: number;
   index: number
 }
 
-export class Newsfeed extends React.Component<INewsfeedProps, IState>
+export class Newsfeed extends React.Component<INewsfeedProps, INewsfeedState>
 {
 
   constructor(props: INewsfeedProps) {
     super(props);
     this.state = ({
-      interval: setTimeout(() => {       
+      interval: setTimeout(() => {
       }, 0),
       displayPicker: 1,
       index: 1
     });
   }
 
+  // Generates random ID used used for the automated newsfeed display
   generateID = (): number => {
     let randomNumber: number = Math.floor(Math.random() * 1000);
     randomNumber += this.props.posts.length;
     return randomNumber;
   }
-  
+
   // this function enables the periodic posts of articles
   componentDidMount() {
     console.log('component ran');
-    setInterval(() => {this.setState({index: this.state.index + 1})}, 10000);
-    // this.setState({ display: setInterval(() => { this.generateID() }, 10000) });
-    // setTimeout(() => {}, 10000);
+    setInterval(() => { this.setState({ index: this.state.index + 1 }) }, 10000);
   }
 
-  // componentWillUnmount() {
-  //   // to clear my interval in here (but this is needs debugging)
-  //   console.log('component unran')
-  //   clearInterval(this.state.index);
-  // }
-
+  // The rendering method that pushes the posts.
   render() {
-    let {index} = this.state;
-    setTimeout(() => {}, 1000);
+    let { index } = this.state;
+    setTimeout(() => { }, 1000);
     return (
-      <Grid columns="two">
-      <Item.Group className='feedblk'>
-      {this.props.posts.slice(0, index).map(element => 
-      <Item className='post'>
-        {/* {this.props.posts.slice(0, index).map(element =>  */}
-          <Item.Image size='small' src={element.thumbnailUrl} />
-
-          <Item.Content>
-            <Item.Header as='a'>...Updated feed</Item.Header>
-            <Item.Description>
-              <p>
-              {element.article}
-              </p>
-            </Item.Description>
-          </Item.Content>
-          </Item>
-        )}
-      
-      </Item.Group>
+      <Grid columns="two" className="container">
+        <Item.Group className='feedblk'>
+          {this.props.posts.slice(0, index).map(element =>  // this loops through the posts and actuivates the rendering
+            <Item className='post'>
+              <Item.Image size='small' src={element.thumbnailUrl} />
+              <Item.Content>
+                <Item.Header as='a'><em>...Updated feed</em></Item.Header>
+                <Item.Description>
+                  <p>
+                    {element.article}
+                  </p>
+                </Item.Description>
+              </Item.Content>
+            </Item>
+          )}
+        </Item.Group>
       </Grid>
     );
   }
@@ -86,6 +77,7 @@ const mapStateToProps = (state: RootState) => {
   }
 }
 
+// Connecting our functions/action to our store
 export default connect(
   mapStateToProps,
   { addPostToNewsfeed, removePostFromNewsfeed }

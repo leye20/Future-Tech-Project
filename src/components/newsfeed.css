@@ -1,9 +1,4 @@
-/* .twelve.wide.column ul div{
-    padding-bottom: 15px;
-    text-align: justify;
-    border: 5px;
-    display: inline-block;
-} */
+/* styling the newsfeed page*/
 
 .item.post {
     border: 1px solid grey;
@@ -11,6 +6,17 @@
     margin-right: 350px;
     margin: 50px;
     border-radius: 1em;
-    /* display: inline-block; */
     text-align: justify;
+  }
+
+  .feedblk {
+    margin-left: auto;
+    margin-right: auto;
+    width: 75%;
+  }
+  
+  .container {
+    justify-self: center;
+    justify-items: center;
+    margin-left: 100px;
   }
