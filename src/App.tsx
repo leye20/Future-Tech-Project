@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid } from 'semantic-ui-react';
 import Profile from './components/profile';
+import "./components/home.jpg";
 
 function App() {
   return (
