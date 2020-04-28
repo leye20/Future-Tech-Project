@@ -1,5 +1,3 @@
-![Image description](https://app.slack.com/client/TTBL33AK0/C011V6F4K70)
-
 
 Group Name: Future-Tech 
 
