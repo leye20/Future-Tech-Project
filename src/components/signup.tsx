@@ -67,6 +67,7 @@ export class SignupPage extends React.Component<ISignupPageProps>
             <br></br>
             <h1> Signup </h1>
             <br></br>
+            <p><strong>You don't know the meaning of "too much information" until you sign up!!!</strong></p>
             <label>Username</label>
             <input name='username' placeholder='Username' />
           </Form.Field>
@@ -78,7 +79,7 @@ export class SignupPage extends React.Component<ISignupPageProps>
             <label>Interests</label>
             <input name='interests' placeholder='Interests' />
           </Form.Field>
-          <Button type='submit'>Signup</Button>
+          <Button type='submit' inverted color='blue'>Signup</Button>
         </Form>
       </Grid>
     )
